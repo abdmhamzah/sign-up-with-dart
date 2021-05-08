@@ -1,4 +1,4 @@
-import 'package:dkatalis/screens/screen%201/screen1.dart';
+import 'package:dkatalis/screens/screen%201/screen_1.dart';
 import 'package:flutter/material.dart';
 
 void main() {
