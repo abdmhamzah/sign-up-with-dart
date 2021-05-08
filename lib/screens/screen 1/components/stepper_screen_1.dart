@@ -20,17 +20,12 @@ class StepperContent extends StatelessWidget {
           ),
           Container(
             child: Center(
-                child: Text(
-              "1",
-              style: stepper,
-              textAlign: TextAlign.center,
-            )),
+              child: Text("1", style: stepper, textAlign: TextAlign.center),
+            ),
             decoration: BoxDecoration(
               color: Colors.grey.shade300,
               borderRadius: BorderRadius.circular(375 / 8),
-              boxShadow: [
-                BoxShadow(color: Colors.black, spreadRadius: 1),
-              ],
+              boxShadow: [BoxShadow(color: Colors.black, spreadRadius: 1)],
             ),
             width: getProportionateScreenWidth(375 / 8),
             height: getProportionateScreenWidth(375 / 8),
@@ -38,23 +33,16 @@ class StepperContent extends StatelessWidget {
           SizedBox(
             width: getProportionateScreenWidth(375 / 8),
             height: 3,
-            child: Container(
-              color: Colors.black,
-            ),
+            child: Container(color: Colors.black),
           ),
           Container(
             child: Center(
-                child: Text(
-              "2",
-              style: stepper,
-              textAlign: TextAlign.center,
-            )),
+              child: Text("2", style: stepper, textAlign: TextAlign.center),
+            ),
             decoration: BoxDecoration(
               color: Colors.grey.shade300,
               borderRadius: BorderRadius.circular(375 / 8),
-              boxShadow: [
-                BoxShadow(color: Colors.black, spreadRadius: 1),
-              ],
+              boxShadow: [BoxShadow(color: Colors.black, spreadRadius: 1)],
             ),
             width: getProportionateScreenWidth(375 / 8),
             height: getProportionateScreenWidth(375 / 8),
@@ -62,23 +50,16 @@ class StepperContent extends StatelessWidget {
           SizedBox(
             width: getProportionateScreenWidth(375 / 8),
             height: 3,
-            child: Container(
-              color: Colors.black,
-            ),
+            child: Container(color: Colors.black),
           ),
           Container(
             child: Center(
-                child: Text(
-              "3",
-              style: stepper,
-              textAlign: TextAlign.center,
-            )),
+              child: Text("3", style: stepper, textAlign: TextAlign.center),
+            ),
             decoration: BoxDecoration(
               color: Colors.grey.shade300,
               borderRadius: BorderRadius.circular(375 / 8),
-              boxShadow: [
-                BoxShadow(color: Colors.black, spreadRadius: 1),
-              ],
+              boxShadow: [BoxShadow(color: Colors.black, spreadRadius: 1)],
             ),
             width: getProportionateScreenWidth(375 / 8),
             height: getProportionateScreenWidth(375 / 8),
@@ -86,30 +67,21 @@ class StepperContent extends StatelessWidget {
           SizedBox(
             width: getProportionateScreenWidth(375 / 8),
             height: 3,
-            child: Container(
-              color: Colors.black,
-            ),
+            child: Container(color: Colors.black),
           ),
           Container(
             child: Center(
-                child: Text(
-              "4",
-              style: stepper,
-              textAlign: TextAlign.center,
-            )),
+              child: Text("4", style: stepper, textAlign: TextAlign.center),
+            ),
             decoration: BoxDecoration(
               color: Colors.grey.shade300,
               borderRadius: BorderRadius.circular(375 / 8),
-              boxShadow: [
-                BoxShadow(color: Colors.black, spreadRadius: 1),
-              ],
+              boxShadow: [BoxShadow(color: Colors.black, spreadRadius: 1)],
             ),
             width: getProportionateScreenWidth(375 / 8),
             height: getProportionateScreenWidth(375 / 8),
           ),
-          SizedBox(
-            width: getProportionateScreenWidth(375 / 16),
-          ),
+          SizedBox(width: getProportionateScreenWidth(375 / 16)),
         ],
       ),
     );
