@@ -1,5 +1,6 @@
-import 'package:dkatalis/screens/screen_email_form/screen_email_form.dart';
 import 'package:flutter/material.dart';
+import 'routes.dart';
+import 'screens/screen_email_form/screen_email_form.dart';
 
 void main() {
   runApp(MyApp());
@@ -20,7 +21,8 @@ class MyApp extends StatelessWidget {
             bodyText2: TextStyle(color: Colors.black),
           ),
           visualDensity: VisualDensity.adaptivePlatformDensity),
-      home: ScreenOne(),
+      initialRoute: ScreenEmailForm.routeName,
+      routes: routes,
     );
   }
 }
