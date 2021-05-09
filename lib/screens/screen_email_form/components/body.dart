@@ -66,7 +66,7 @@ class _BodyState extends State<Body> {
                   text: " Finans",
                   style: TextStyle(
                     fontSize: 35,
-                    color: Colors.blue,
+                    color: primaryColor,
                     fontWeight: FontWeight.bold,
                   ),
                 ),

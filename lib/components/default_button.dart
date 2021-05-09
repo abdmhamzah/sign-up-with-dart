@@ -20,7 +20,7 @@ class DefaultButton extends StatelessWidget {
         child: TextButton(
           onPressed: press,
           style: TextButton.styleFrom(
-            backgroundColor: Colors.blueAccent.shade100,
+            backgroundColor: secondaryColor,
             padding: EdgeInsets.only(top: 15, bottom: 15),
             enableFeedback: true,
           ),

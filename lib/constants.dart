@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
 
+const primaryColor = Color(0xFF4E7FE8);
+const secondaryColor = Color(0xFF829fde);
+
 TextStyle stepper = TextStyle(
   color: Colors.black,
   fontSize: 24,
   fontWeight: FontWeight.normal,
+);
+
+TextStyle titleWhite = TextStyle(
+  color: Colors.white,
+  fontSize: 19,
+  fontWeight: FontWeight.bold,
 );
 
 TextStyle bodyBlack = TextStyle(

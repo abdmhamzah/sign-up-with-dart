@@ -1,6 +1,7 @@
 import 'package:dkatalis/components/default_button.dart';
 import 'package:dkatalis/components/form_error.dart';
 import 'package:flutter/material.dart';
+import 'package:dkatalis/screens/screen_password_form/screen_password_form.dart';
 
 import '../../../constants.dart';
 
@@ -27,8 +28,9 @@ class _FormEmailState extends State<FormEmail> {
           DefaultButton(
             text: "Next",
             press: () {
-              if (_formKey.currentState.validate()) {
+              if (_formKey.currentState.validate() && errors.length == 0) {
                 _formKey.currentState.save();
+                Navigator.pushNamed(context, ScreenPasswordForm.routeName);
               }
             },
           )
@@ -72,7 +74,8 @@ class _FormEmailState extends State<FormEmail> {
                 errors.add(emailEmptyErrorText);
               });
             } else if (!emailValidatorRegExp.hasMatch(value) &&
-                !errors.contains(invalidEmailErrorText)) {
+                !errors.contains(invalidEmailErrorText) &&
+                errors.length == 0) {
               setState(() {
                 errors.add(invalidEmailErrorText);
               });
