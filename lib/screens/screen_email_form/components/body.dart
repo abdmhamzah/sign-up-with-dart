@@ -75,7 +75,7 @@ class _BodyState extends State<Body> {
           ),
           SizedBox(height: 20),
           Text(
-            "Welcome to The Bank of The Future. \nManage and track your accounts on \nthe go.",
+            "Welcome to The Bank of The Future. Manage and track your accounts on the go.",
             style: bodyBlack,
           ),
           SizedBox(height: 20),

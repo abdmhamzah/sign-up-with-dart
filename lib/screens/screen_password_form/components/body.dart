@@ -25,7 +25,11 @@ class _BodyState extends State<Body> {
       ),
       Expanded(
         flex: 7,
-        child: buildMiddleContent(),
+        child: Column(
+          children: [
+            buildMiddleContent(),
+          ],
+        ),
       )
     ]);
   }
