@@ -105,7 +105,7 @@ class CheckerInfo extends StatelessWidget {
                       }()),
                       SizedBox(height: 10),
                       Text(
-                        "Character",
+                        "Characters",
                         style: complexityInfo,
                         textAlign: TextAlign.center,
                       ),

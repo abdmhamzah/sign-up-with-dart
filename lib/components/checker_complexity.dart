@@ -29,30 +29,50 @@ class CheckerComplexity extends StatelessWidget {
                   !numberValidationRegExp.hasMatch(value) &&
                   value.length < 9) {
                 return TextSpan(
-                  text: "Poor",
-                  style: infoDanger,
+                  text: "",
                 );
               } else if (!uppercaseValidationRegExp.hasMatch(value) &&
-                  lowercaseValidationRegExp.hasMatch(value) &&
-                  !numberValidationRegExp.hasMatch(value) &&
-                  value.length < 9) {
+                      lowercaseValidationRegExp.hasMatch(value) &&
+                      !numberValidationRegExp.hasMatch(value) &&
+                      value.length < 9 ||
+                  uppercaseValidationRegExp.hasMatch(value) &&
+                      !lowercaseValidationRegExp.hasMatch(value) &&
+                      !numberValidationRegExp.hasMatch(value) &&
+                      value.length < 9) {
                 return TextSpan(
                   text: "Poor",
                   style: infoDanger,
                 );
               } else if (uppercaseValidationRegExp.hasMatch(value) &&
-                  !lowercaseValidationRegExp.hasMatch(value) &&
-                  !numberValidationRegExp.hasMatch(value) &&
-                  value.length < 9) {
+                      lowercaseValidationRegExp.hasMatch(value) &&
+                      !numberValidationRegExp.hasMatch(value) &&
+                      value.length < 9 ||
+                  uppercaseValidationRegExp.hasMatch(value) &&
+                      lowercaseValidationRegExp.hasMatch(value) &&
+                      !numberValidationRegExp.hasMatch(value) &&
+                      value.length > 9) {
                 return TextSpan(
                   text: "Very Weak",
                   style: infoWarning,
                 );
-              } else if (uppercaseValidationRegExp.hasMatch(value) &&
-                  lowercaseValidationRegExp.hasMatch(value) &&
-                  !numberValidationRegExp.hasMatch(value)) {
+              } else if (!uppercaseValidationRegExp.hasMatch(value) &&
+                      lowercaseValidationRegExp.hasMatch(value) &&
+                      numberValidationRegExp.hasMatch(value) &&
+                      value.length < 9 ||
+                  uppercaseValidationRegExp.hasMatch(value) &&
+                      !lowercaseValidationRegExp.hasMatch(value) &&
+                      numberValidationRegExp.hasMatch(value) &&
+                      value.length < 9 ||
+                  !uppercaseValidationRegExp.hasMatch(value) &&
+                      lowercaseValidationRegExp.hasMatch(value) &&
+                      numberValidationRegExp.hasMatch(value) &&
+                      value.length > 9 ||
+                  uppercaseValidationRegExp.hasMatch(value) &&
+                      !lowercaseValidationRegExp.hasMatch(value) &&
+                      numberValidationRegExp.hasMatch(value) &&
+                      value.length < 9) {
                 return TextSpan(
-                  text: "Very Weak",
+                  text: "Fair",
                   style: infoWarning,
                 );
               } else if (uppercaseValidationRegExp.hasMatch(value) &&

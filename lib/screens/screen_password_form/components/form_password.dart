@@ -33,9 +33,8 @@ class _FormPasswordState extends State<FormPassword> {
           DefaultButton(
             text: "Next",
             press: () {
-              if (_formKey.currentState.validate()) {
-                print(_currentTextValue);
-                print(errors);
+              if (_formKey.currentState.validate() && errors.length == 0) {
+                print("Sukses brok");
                 // Navigator.pushNamed(context, ScreenPersonalInfoForm.routeName);
                 //   _formKey.currentState.save();
               }
