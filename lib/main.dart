@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Test Hamzah Abdullah Mubarak',
       debugShowCheckedModeBanner: false,
       theme: theme(),
-      initialRoute: ScreenPasswordForm.routeName,
+      initialRoute: ScreenEmailForm.routeName,
       routes: routes,
     );
   }

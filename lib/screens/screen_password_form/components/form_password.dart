@@ -1,5 +1,5 @@
-import 'package:dkatalis/components/checker_info.dart';
 import 'package:dkatalis/components/default_button.dart';
+import 'package:dkatalis/screens/screen_password_form/components/checker_info.dart';
 import 'package:dkatalis/screens/screen_personal_information/screen_personal_information_form.dart';
 import 'package:flutter/material.dart';
 
@@ -35,8 +35,8 @@ class _FormPasswordState extends State<FormPassword> {
             press: () {
               if (_formKey.currentState.validate() && errors.length == 0) {
                 print("Sukses brok");
-                // Navigator.pushNamed(context, ScreenPersonalInfoForm.routeName);
-                //   _formKey.currentState.save();
+                Navigator.pushNamed(context, ScreenPersonalInfoForm.routeName);
+                _formKey.currentState.save();
               }
             },
           )
