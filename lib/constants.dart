@@ -12,6 +12,12 @@ TextStyle bodyBlack = TextStyle(
   fontWeight: FontWeight.normal,
 );
 
+TextStyle bodyWhite = TextStyle(
+  color: Colors.grey.shade300,
+  fontSize: 16,
+  fontWeight: FontWeight.normal,
+);
+
 TextStyle buttonText = TextStyle(
   color: Colors.white,
   fontSize: 17,

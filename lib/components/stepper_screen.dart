@@ -5,7 +5,9 @@ import 'package:dkatalis/constants.dart';
 class StepperContent extends StatelessWidget {
   const StepperContent({
     Key key,
+    this.currentScreen,
   }) : super(key: key);
+  final double currentScreen;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +25,7 @@ class StepperContent extends StatelessWidget {
               child: Text("1", style: stepper, textAlign: TextAlign.center),
             ),
             decoration: BoxDecoration(
-              color: Colors.grey.shade300,
+              color: currentScreen > 0 ? Colors.green : Colors.grey.shade300,
               borderRadius: BorderRadius.circular(375 / 8),
               boxShadow: [BoxShadow(color: Colors.black, spreadRadius: 1)],
             ),
@@ -40,7 +42,7 @@ class StepperContent extends StatelessWidget {
               child: Text("2", style: stepper, textAlign: TextAlign.center),
             ),
             decoration: BoxDecoration(
-              color: Colors.grey.shade300,
+              color: currentScreen > 1 ? Colors.green : Colors.grey.shade300,
               borderRadius: BorderRadius.circular(375 / 8),
               boxShadow: [BoxShadow(color: Colors.black, spreadRadius: 1)],
             ),
@@ -57,7 +59,7 @@ class StepperContent extends StatelessWidget {
               child: Text("3", style: stepper, textAlign: TextAlign.center),
             ),
             decoration: BoxDecoration(
-              color: Colors.grey.shade300,
+              color: currentScreen > 2 ? Colors.green : Colors.grey.shade300,
               borderRadius: BorderRadius.circular(375 / 8),
               boxShadow: [BoxShadow(color: Colors.black, spreadRadius: 1)],
             ),
@@ -74,7 +76,7 @@ class StepperContent extends StatelessWidget {
               child: Text("4", style: stepper, textAlign: TextAlign.center),
             ),
             decoration: BoxDecoration(
-              color: Colors.grey.shade300,
+              color: currentScreen > 3 ? Colors.green : Colors.grey.shade300,
               borderRadius: BorderRadius.circular(375 / 8),
               boxShadow: [BoxShadow(color: Colors.black, spreadRadius: 1)],
             ),

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
 ThemeData theme() {
-  return ThemeData(
-    fontFamily: "Roboto",
-  );
+  return ThemeData(fontFamily: "Roboto");
 }
