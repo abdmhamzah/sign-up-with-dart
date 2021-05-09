@@ -1,3 +1,5 @@
+import 'package:dkatalis/components/check_icon.dart';
+import 'package:dkatalis/components/checker_complexity.dart';
 import 'package:dkatalis/constants.dart';
 import 'package:dkatalis/size_config.dart';
 import 'package:flutter/material.dart';
@@ -5,34 +7,16 @@ import 'package:flutter/material.dart';
 class CheckerInfo extends StatelessWidget {
   const CheckerInfo({
     Key key,
-    @required this.errors,
+    @required this.value,
   }) : super(key: key);
 
-  final List<String> errors;
+  final String value;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
-          padding: const EdgeInsets.only(top: 20),
-          width: getProportionateScreenWidth(375),
-          child: RichText(
-            textAlign: TextAlign.left,
-            text: TextSpan(
-              children: <TextSpan>[
-                TextSpan(
-                  text: "Complexity: ",
-                  style: bodyWhite,
-                ),
-                TextSpan(
-                  text: "Very Weak",
-                  style: infoWarning,
-                )
-              ],
-            ),
-          ),
-        ),
+        CheckerComplexity(value: value),
         Padding(
           padding: const EdgeInsets.only(top: 60),
           child: Container(
@@ -42,12 +26,17 @@ class CheckerInfo extends StatelessWidget {
                 children: [
                   Column(
                     children: [
-                      Text(
-                        "a",
-                        style: complexityTitle,
-                        textAlign: TextAlign.center,
-                      ),
-                      // CheckIcon(),
+                      (() {
+                        if (lowercaseValidationRegExp.hasMatch(value)) {
+                          return CheckIcon();
+                        } else {
+                          return Text(
+                            "a",
+                            style: complexityTitle,
+                            textAlign: TextAlign.center,
+                          );
+                        }
+                      }()),
                       SizedBox(height: 10),
                       Text(
                         "Lowercase",
@@ -59,11 +48,17 @@ class CheckerInfo extends StatelessWidget {
                   SizedBox(width: getProportionateScreenWidth(375 / 16)),
                   Column(
                     children: [
-                      Text(
-                        "A",
-                        style: complexityTitle,
-                        textAlign: TextAlign.center,
-                      ),
+                      (() {
+                        if (uppercaseValidationRegExp.hasMatch(value)) {
+                          return CheckIcon();
+                        } else {
+                          return Text(
+                            "A",
+                            style: complexityTitle,
+                            textAlign: TextAlign.center,
+                          );
+                        }
+                      }()),
                       SizedBox(height: 10),
                       Text(
                         "Uppercase",
@@ -75,11 +70,17 @@ class CheckerInfo extends StatelessWidget {
                   SizedBox(width: getProportionateScreenWidth(375 / 16)),
                   Column(
                     children: [
-                      Text(
-                        "123",
-                        style: complexityTitle,
-                        textAlign: TextAlign.center,
-                      ),
+                      (() {
+                        if (numberValidationRegExp.hasMatch(value)) {
+                          return CheckIcon();
+                        } else {
+                          return Text(
+                            "123",
+                            style: complexityTitle,
+                            textAlign: TextAlign.center,
+                          );
+                        }
+                      }()),
                       SizedBox(height: 10),
                       Text(
                         "Number",
@@ -91,11 +92,17 @@ class CheckerInfo extends StatelessWidget {
                   SizedBox(width: getProportionateScreenWidth(375 / 16)),
                   Column(
                     children: [
-                      Text(
-                        "9+",
-                        style: complexityTitle,
-                        textAlign: TextAlign.center,
-                      ),
+                      (() {
+                        if (value.length > 9) {
+                          return CheckIcon();
+                        } else {
+                          return Text(
+                            "9+",
+                            style: complexityTitle,
+                            textAlign: TextAlign.center,
+                          );
+                        }
+                      }()),
                       SizedBox(height: 10),
                       Text(
                         "Character",

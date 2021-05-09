@@ -14,7 +14,12 @@ class _FormPasswordState extends State<FormPassword> {
   final _formKey = GlobalKey<FormState>();
   final List<String> errors = [];
   bool toggleVisible = false;
+  String _currentTextValue = '';
   String password;
+
+  void _textValue(String value) {
+    setState(() => _currentTextValue = value);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,15 +28,17 @@ class _FormPasswordState extends State<FormPassword> {
       child: Column(
         children: [
           buildPasswordFormField(),
-          CheckerInfo(errors: errors),
+          CheckerInfo(value: _currentTextValue),
           SizedBox(height: 100),
           DefaultButton(
             text: "Next",
             press: () {
-              Navigator.pushNamed(context, ScreenPersonalInfoForm.routeName);
-              // if (_formKey.currentState.validate() && errors.length == 0) {
-              //   _formKey.currentState.save();
-              // }
+              if (_formKey.currentState.validate()) {
+                print(_currentTextValue);
+                print(errors);
+                // Navigator.pushNamed(context, ScreenPersonalInfoForm.routeName);
+                //   _formKey.currentState.save();
+              }
             },
           )
         ],
@@ -48,29 +55,65 @@ class _FormPasswordState extends State<FormPassword> {
       ),
       child: TextFormField(
         onSaved: (newValue) => password = newValue,
-        // onChanged: (value) {
-        //   if (value.isNotEmpty && errors.contains(emailEmptyErrorText)) {
-        //     setState(() {
-        //       errors.remove(emailEmptyErrorText);
-        //     });
-        //   } else if (emailValidatorRegExp.hasMatch(value) &&
-        //       errors.contains(invalidEmailErrorText)) {
-        //     setState(() {
-        //       errors.remove(invalidEmailErrorText);
-        //     });
-        //   }
-        //   return null;
-        // },
-        validator: (value) {
-          if (value.isEmpty && !errors.contains(emailEmptyErrorText)) {
+        onChanged: (value) {
+          if (value.isNotEmpty && errors.contains(passwordEmptyErrorText)) {
             setState(() {
-              errors.add(emailEmptyErrorText);
+              errors.remove(passwordEmptyErrorText);
             });
-          } else if (!emailValidatorRegExp.hasMatch(value) &&
-              !errors.contains(invalidEmailErrorText) &&
-              errors.length == 0) {
+          }
+          if (value.length >= 9 && errors.contains(passwordLessAtLength)) {
             setState(() {
-              errors.add(invalidEmailErrorText);
+              errors.remove(passwordLessAtLength);
+            });
+          }
+          if (lowercaseValidationRegExp.hasMatch(value) &&
+              errors.contains(passwordLowercaseMissed)) {
+            setState(() {
+              errors.remove(passwordLowercaseMissed);
+            });
+          }
+          if (uppercaseValidationRegExp.hasMatch(value) &&
+              errors.contains(passwordUppercaseMissed)) {
+            setState(() {
+              errors.remove(passwordUppercaseMissed);
+            });
+          }
+          if (numberValidationRegExp.hasMatch(value) &&
+              errors.contains(passwordNumberMissed)) {
+            setState(() {
+              errors.remove(passwordNumberMissed);
+            });
+          }
+          _textValue(value);
+          return null;
+        },
+        validator: (value) {
+          if (value.isEmpty && !errors.contains(passwordEmptyErrorText)) {
+            setState(() {
+              errors.add(passwordEmptyErrorText);
+            });
+          }
+          if (value.length < 9 && !errors.contains(passwordLessAtLength)) {
+            setState(() {
+              errors.add(passwordLessAtLength);
+            });
+          }
+          if (!lowercaseValidationRegExp.hasMatch(value) &&
+              !errors.contains(passwordLowercaseMissed)) {
+            setState(() {
+              errors.add(passwordLowercaseMissed);
+            });
+          }
+          if (!uppercaseValidationRegExp.hasMatch(value) &&
+              !errors.contains(passwordUppercaseMissed)) {
+            setState(() {
+              errors.add(passwordUppercaseMissed);
+            });
+          }
+          if (!numberValidationRegExp.hasMatch(value) &&
+              !errors.contains(passwordNumberMissed)) {
+            setState(() {
+              errors.add(passwordNumberMissed);
             });
           }
           return null;

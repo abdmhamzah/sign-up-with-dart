@@ -9,15 +9,15 @@ class CheckIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 30,
-      width: 30,
+      height: 40,
+      width: 40,
       child: Icon(
         Icons.check,
         color: Colors.white,
       ),
       decoration: BoxDecoration(
         color: successColor,
-        borderRadius: BorderRadius.circular(30),
+        borderRadius: BorderRadius.circular(40),
       ),
     );
   }

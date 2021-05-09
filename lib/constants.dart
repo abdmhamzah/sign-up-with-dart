@@ -68,6 +68,9 @@ TextStyle complexityInfo = TextStyle(
 final RegExp emailValidatorRegExp = RegExp(
   r"^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+",
 );
+final RegExp lowercaseValidationRegExp = RegExp("(?=.*[a-z])");
+final RegExp uppercaseValidationRegExp = RegExp("(?=.*[A-Z])");
+final RegExp numberValidationRegExp = RegExp("[0-9]");
 
 const String emailEmptyErrorText = "Please enter your email";
 const String invalidEmailErrorText = "Please enter valid email";
