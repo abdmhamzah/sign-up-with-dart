@@ -34,7 +34,6 @@ class _FormPasswordState extends State<FormPassword> {
             text: "Next",
             press: () {
               if (_formKey.currentState.validate() && errors.length == 0) {
-                print("Sukses brok");
                 Navigator.pushNamed(context, ScreenPersonalInfoForm.routeName);
                 _formKey.currentState.save();
               }
@@ -120,7 +119,7 @@ class _FormPasswordState extends State<FormPassword> {
         keyboardType: TextInputType.emailAddress,
         obscureText: !toggleVisible,
         decoration: InputDecoration(
-          labelText: "Password",
+          labelText: "Create Password",
           border: InputBorder.none,
           floatingLabelBehavior: FloatingLabelBehavior.never,
           contentPadding: EdgeInsets.only(bottom: 15),

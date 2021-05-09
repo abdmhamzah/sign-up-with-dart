@@ -46,7 +46,11 @@ class CheckerComplexity extends StatelessWidget {
                   uppercaseValidationRegExp.hasMatch(value) &&
                       !lowercaseValidationRegExp.hasMatch(value) &&
                       !numberValidationRegExp.hasMatch(value) &&
-                      value.length > 9) {
+                      value.length > 9 ||
+                  !uppercaseValidationRegExp.hasMatch(value) &&
+                      lowercaseValidationRegExp.hasMatch(value) &&
+                      !numberValidationRegExp.hasMatch(value) &&
+                      value.length == 9) {
                 return TextSpan(
                   text: "Poor",
                   style: infoDanger,
@@ -86,7 +90,43 @@ class CheckerComplexity extends StatelessWidget {
                   uppercaseValidationRegExp.hasMatch(value) &&
                       !lowercaseValidationRegExp.hasMatch(value) &&
                       numberValidationRegExp.hasMatch(value) &&
-                      value.length < 9) {
+                      value.length < 9 ||
+                  uppercaseValidationRegExp.hasMatch(value) &&
+                      lowercaseValidationRegExp.hasMatch(value) &&
+                      numberValidationRegExp.hasMatch(value) &&
+                      value.length <= 9) {
+                return TextSpan(
+                  text: "Very Fair",
+                  style: infoWarning,
+                );
+              } else if (!uppercaseValidationRegExp.hasMatch(value) &&
+                      lowercaseValidationRegExp.hasMatch(value) &&
+                      numberValidationRegExp.hasMatch(value) &&
+                      value.length == 9 ||
+                  uppercaseValidationRegExp.hasMatch(value) &&
+                      !lowercaseValidationRegExp.hasMatch(value) &&
+                      numberValidationRegExp.hasMatch(value) &&
+                      value.length == 9 ||
+                  !uppercaseValidationRegExp.hasMatch(value) &&
+                      lowercaseValidationRegExp.hasMatch(value) &&
+                      numberValidationRegExp.hasMatch(value) &&
+                      value.length == 9 ||
+                  uppercaseValidationRegExp.hasMatch(value) &&
+                      !lowercaseValidationRegExp.hasMatch(value) &&
+                      numberValidationRegExp.hasMatch(value) &&
+                      value.length == 9 ||
+                  !uppercaseValidationRegExp.hasMatch(value) &&
+                      !lowercaseValidationRegExp.hasMatch(value) &&
+                      numberValidationRegExp.hasMatch(value) &&
+                      value.length == 9 ||
+                  uppercaseValidationRegExp.hasMatch(value) &&
+                      !lowercaseValidationRegExp.hasMatch(value) &&
+                      !numberValidationRegExp.hasMatch(value) &&
+                      value.length == 9 ||
+                  uppercaseValidationRegExp.hasMatch(value) &&
+                      lowercaseValidationRegExp.hasMatch(value) &&
+                      !numberValidationRegExp.hasMatch(value) &&
+                      value.length == 9) {
                 return TextSpan(
                   text: "Fair",
                   style: infoWarning,
@@ -94,7 +134,7 @@ class CheckerComplexity extends StatelessWidget {
               } else if (uppercaseValidationRegExp.hasMatch(value) &&
                   lowercaseValidationRegExp.hasMatch(value) &&
                   numberValidationRegExp.hasMatch(value) &&
-                  value.length >= 9) {
+                  value.length > 9) {
                 return TextSpan(
                   text: "Good",
                   style: infoSuccess,
