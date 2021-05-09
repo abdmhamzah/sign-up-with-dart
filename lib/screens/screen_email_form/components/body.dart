@@ -1,4 +1,4 @@
-import 'package:dkatalis/screens/screen%201/components/form_email.dart';
+import 'package:dkatalis/screens/screen_email_form/components/form_email.dart';
 import 'package:dkatalis/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:dkatalis/constants.dart';
