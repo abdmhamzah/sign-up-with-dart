@@ -1,3 +1,4 @@
+import 'package:dkatalis/theme.dart';
 import 'package:flutter/material.dart';
 import 'routes.dart';
 import 'screens/screen_email_form/screen_email_form.dart';
@@ -11,16 +12,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Flutter Test Hamzah Abdullah Mubarak',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-          scaffoldBackgroundColor: Colors.white,
-          fontFamily: "Roboto",
-          textTheme: TextTheme(
-            bodyText1: TextStyle(color: Colors.white),
-            bodyText2: TextStyle(color: Colors.black),
-          ),
-          visualDensity: VisualDensity.adaptivePlatformDensity),
+      theme: theme(),
       initialRoute: ScreenEmailForm.routeName,
       routes: routes,
     );
