@@ -1,7 +1,12 @@
 import 'package:dkatalis/components/default_button.dart';
 import 'package:flutter/material.dart';
 
-class FormEmail extends StatelessWidget {
+class FormEmail extends StatefulWidget {
+  @override
+  _FormEmailState createState() => _FormEmailState();
+}
+
+class _FormEmailState extends State<FormEmail> {
   @override
   Widget build(BuildContext context) {
     return Form(

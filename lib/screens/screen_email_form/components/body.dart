@@ -18,7 +18,7 @@ class _BodyState extends State<Body> {
         child: Stack(
           children: <Widget>[
             buildTopShape(),
-            StepperContent(currentScreen: 0),
+            StepperContent(currentScreen: 1),
           ],
         ),
       ),
