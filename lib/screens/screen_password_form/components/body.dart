@@ -1,4 +1,5 @@
 import 'package:dkatalis/components/back_button.dart';
+import 'package:dkatalis/screens/screen_password_form/components/form_password.dart';
 import 'package:dkatalis/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:dkatalis/constants.dart';
@@ -25,10 +26,13 @@ class _BodyState extends State<Body> {
       ),
       Expanded(
         flex: 7,
-        child: Column(
-          children: [
-            buildMiddleContent(),
-          ],
+        child: Container(
+          color: primaryColor,
+          child: Column(
+            children: [
+              buildMiddleContent(),
+            ],
+          ),
         ),
       )
     ]);
@@ -46,19 +50,21 @@ class _BodyState extends State<Body> {
   Container buildMiddleContent() {
     return Container(
       padding: const EdgeInsets.only(left: 20, right: 20),
-      color: primaryColor,
       width: getProportionateScreenWidth(375),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Text("Create Password", style: titleWhite),
-          SizedBox(height: 10),
-          Text(
-            "Password will be used to login to account",
-            style: bodyWhite,
-          ),
-          SizedBox(height: 20),
-        ],
+      child: Container(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text("Create Password", style: titleWhite),
+            SizedBox(height: 10),
+            Text(
+              "Password will be used to login to account",
+              style: bodyWhite,
+            ),
+            SizedBox(height: 20),
+            FormPassword()
+          ],
+        ),
       ),
     );
   }
