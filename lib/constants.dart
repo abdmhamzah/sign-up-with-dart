@@ -23,3 +23,9 @@ TextStyle buttonText = TextStyle(
   fontSize: 17,
   fontWeight: FontWeight.bold,
 );
+
+// Form Error
+final RegExp emailValidatorRegExp =
+    RegExp(r"^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
+const String emailEmptyErrorText = "Please enter your email";
+const String invalidEmailErrorText = "Please enter valid email";

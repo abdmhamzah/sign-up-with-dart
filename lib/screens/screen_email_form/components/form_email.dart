@@ -1,5 +1,8 @@
 import 'package:dkatalis/components/default_button.dart';
+import 'package:dkatalis/components/form_error.dart';
 import 'package:flutter/material.dart';
+
+import '../../../constants.dart';
 
 class FormEmail extends StatefulWidget {
   @override
@@ -7,18 +10,26 @@ class FormEmail extends StatefulWidget {
 }
 
 class _FormEmailState extends State<FormEmail> {
+  final _formKey = GlobalKey<FormState>();
+  final List<String> errors = [];
+  String email;
+
   @override
   Widget build(BuildContext context) {
     return Form(
+      key: _formKey,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           buildEmailFormField(),
-          SizedBox(height: 120),
+          FormError(errors: errors),
+          SizedBox(height: 50),
           DefaultButton(
             text: "Next",
             press: () {
-              print("process");
+              if (_formKey.currentState.validate()) {
+                _formKey.currentState.save();
+              }
             },
           )
         ],
@@ -28,6 +39,7 @@ class _FormEmailState extends State<FormEmail> {
 
   Container buildEmailFormField() {
     return Container(
+      margin: EdgeInsets.only(bottom: 20),
       padding: EdgeInsets.all(15),
       decoration: BoxDecoration(
         color: Colors.grey.shade100,
@@ -40,6 +52,33 @@ class _FormEmailState extends State<FormEmail> {
           borderRadius: new BorderRadius.circular(8),
         ),
         child: TextFormField(
+          onSaved: (newValue) => email = newValue,
+          onChanged: (value) {
+            if (value.isNotEmpty && errors.contains(emailEmptyErrorText)) {
+              setState(() {
+                errors.remove(emailEmptyErrorText);
+              });
+            } else if (emailValidatorRegExp.hasMatch(value) &&
+                errors.contains(invalidEmailErrorText)) {
+              setState(() {
+                errors.remove(invalidEmailErrorText);
+              });
+            }
+            return null;
+          },
+          validator: (value) {
+            if (value.isEmpty && !errors.contains(emailEmptyErrorText)) {
+              setState(() {
+                errors.add(emailEmptyErrorText);
+              });
+            } else if (!emailValidatorRegExp.hasMatch(value) &&
+                !errors.contains(invalidEmailErrorText)) {
+              setState(() {
+                errors.add(invalidEmailErrorText);
+              });
+            }
+            return null;
+          },
           keyboardType: TextInputType.emailAddress,
           decoration: InputDecoration(
             labelText: "Email",

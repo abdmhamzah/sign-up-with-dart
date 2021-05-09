@@ -13,16 +13,19 @@ class DefaultButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: getProportionateScreenWidth(375),
-      child: TextButton(
-        onPressed: press,
-        style: TextButton.styleFrom(
-          backgroundColor: Colors.blueAccent.shade100,
-          padding: EdgeInsets.only(top: 15, bottom: 15),
-          enableFeedback: true,
+    return Align(
+      alignment: FractionalOffset.bottomCenter,
+      child: Container(
+        width: getProportionateScreenWidth(375),
+        child: TextButton(
+          onPressed: press,
+          style: TextButton.styleFrom(
+            backgroundColor: Colors.blueAccent.shade100,
+            padding: EdgeInsets.only(top: 15, bottom: 15),
+            enableFeedback: true,
+          ),
+          child: Text(text, style: buttonText),
         ),
-        child: Text(text, style: buttonText),
       ),
     );
   }
