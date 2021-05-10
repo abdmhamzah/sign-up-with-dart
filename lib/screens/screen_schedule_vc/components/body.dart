@@ -10,8 +10,22 @@ class Body extends StatefulWidget {
   _BodyState createState() => _BodyState();
 }
 
-class _BodyState extends State<Body> {
+class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
+  AnimationController controller;
+  Tween<double> _tween = Tween(begin: 0.5, end: 0.75);
+
   @override
+  void initState() {
+    super.initState();
+
+    controller = AnimationController(
+      vsync: this,
+      duration: const Duration(microseconds: 700),
+    );
+
+    controller.repeat(reverse: true);
+  }
+
   Widget build(BuildContext context) {
     return Column(children: <Widget>[
       Expanded(
@@ -21,6 +35,37 @@ class _BodyState extends State<Body> {
             buildTopShape(),
             StepperContent(currentScreen: 3),
             backButton(context),
+            Container(
+              margin: EdgeInsets.only(top: 135, left: 20),
+              height: (55),
+              width: 55,
+              decoration: BoxDecoration(
+                color: secondaryColor,
+                borderRadius: BorderRadius.circular(55),
+              ),
+              child: Container(
+                alignment: Alignment.center,
+                margin: EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(55),
+                ),
+                child: ScaleTransition(
+                  scale: _tween.animate(
+                    CurvedAnimation(
+                      parent: controller,
+                      curve: Curves.elasticOut,
+                    ),
+                  ),
+                  child: AnimatedIcon(
+                    icon: AnimatedIcons.add_event,
+                    size: 35,
+                    color: primaryColor,
+                    progress: controller,
+                  ),
+                ),
+              ),
+            )
           ],
         ),
       ),
