@@ -1,10 +1,16 @@
 import 'package:dkatalis/constants.dart';
 import 'package:flutter/material.dart';
 
-class AnimatedIcon extends StatelessWidget {
-  const AnimatedIcon({
+class AnimatedShrinkGrowIcon extends StatelessWidget {
+  const AnimatedShrinkGrowIcon({
     Key key,
-  }) : super(key: key);
+    @required Tween<double> tween,
+    @required this.controller,
+  })  : _tween = tween,
+        super(key: key);
+
+  final Tween<double> _tween;
+  final AnimationController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -17,17 +23,25 @@ class AnimatedIcon extends StatelessWidget {
         borderRadius: BorderRadius.circular(55),
       ),
       child: Container(
-        height: (10),
-        width: 10,
+        alignment: Alignment.center,
         margin: EdgeInsets.all(10),
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(30),
+          borderRadius: BorderRadius.circular(55),
         ),
-        child: Icon(
-          Icons.calendar_today_rounded,
-          size: 20,
-          color: primaryColor,
+        child: ScaleTransition(
+          scale: _tween.animate(
+            CurvedAnimation(
+              parent: controller,
+              curve: Curves.elasticOut,
+            ),
+          ),
+          child: AnimatedIcon(
+            icon: AnimatedIcons.add_event,
+            size: 35,
+            color: primaryColor,
+            progress: controller,
+          ),
         ),
       ),
     );

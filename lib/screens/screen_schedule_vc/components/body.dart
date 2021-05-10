@@ -1,4 +1,5 @@
 import 'package:dkatalis/components/back_button.dart';
+import 'package:dkatalis/screens/screen_schedule_vc/components/animated_icon.dart';
 import 'package:dkatalis/screens/screen_schedule_vc/components/form_schedule_vc.dart';
 import 'package:dkatalis/size_config.dart';
 import 'package:flutter/material.dart';
@@ -35,37 +36,7 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
             buildTopShape(),
             StepperContent(currentScreen: 3),
             backButton(context),
-            Container(
-              margin: EdgeInsets.only(top: 135, left: 20),
-              height: (55),
-              width: 55,
-              decoration: BoxDecoration(
-                color: secondaryColor,
-                borderRadius: BorderRadius.circular(55),
-              ),
-              child: Container(
-                alignment: Alignment.center,
-                margin: EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(55),
-                ),
-                child: ScaleTransition(
-                  scale: _tween.animate(
-                    CurvedAnimation(
-                      parent: controller,
-                      curve: Curves.elasticOut,
-                    ),
-                  ),
-                  child: AnimatedIcon(
-                    icon: AnimatedIcons.add_event,
-                    size: 35,
-                    color: primaryColor,
-                    progress: controller,
-                  ),
-                ),
-              ),
-            )
+            AnimatedShrinkGrowIcon(tween: _tween, controller: controller)
           ],
         ),
       ),
