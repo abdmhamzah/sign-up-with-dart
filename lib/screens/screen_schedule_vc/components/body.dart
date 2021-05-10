@@ -1,4 +1,5 @@
 import 'package:dkatalis/components/back_button.dart';
+import 'package:dkatalis/screens/screen_schedule_vc/components/form_schedule_vc.dart';
 import 'package:dkatalis/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:dkatalis/constants.dart';
@@ -61,6 +62,7 @@ class _BodyState extends State<Body> {
             style: bodyWhite,
           ),
           SizedBox(height: 20),
+          FormScheduleVc()
         ],
       ),
     );
