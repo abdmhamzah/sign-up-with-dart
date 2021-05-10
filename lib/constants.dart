@@ -16,6 +16,12 @@ TextStyle titleWhite = TextStyle(
   fontWeight: FontWeight.bold,
 );
 
+TextStyle bodyDanger = TextStyle(
+  color: Colors.red.shade900,
+  fontSize: 16,
+  fontWeight: FontWeight.normal,
+);
+
 TextStyle bodyBlack = TextStyle(
   color: Colors.black,
   fontSize: 16,
@@ -66,6 +72,12 @@ TextStyle complexityInfo = TextStyle(
 
 TextStyle labelInfo = TextStyle(
   color: Colors.grey,
+  fontSize: 12,
+  fontWeight: FontWeight.normal,
+);
+
+TextStyle labelDanger = TextStyle(
+  color: Colors.red.shade900,
   fontSize: 12,
   fontWeight: FontWeight.normal,
 );

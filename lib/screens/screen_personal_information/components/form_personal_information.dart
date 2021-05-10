@@ -1,5 +1,6 @@
 import 'package:dkatalis/components/default_button.dart';
 import 'package:dkatalis/screens/screen_personal_information/screen_personal_information_form.dart';
+import 'package:dkatalis/screens/screen_schedule_vc/screen_schedule_vc_form.dart';
 import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
@@ -51,9 +52,25 @@ class _FormPersonalInfoState extends State<FormPersonalInfo> {
           DefaultButton(
             text: "Next",
             press: () {
-              if (_formKey.currentState.validate()) {
-                // _formKey.currentState.save();
-                // Navigator.pushNamed(context, ScreenPersonalInfoForm.routeName);
+              if (selectedGoalActivation == null) {
+                setState(() {
+                  isGoalActivationSelected = false;
+                });
+              }
+              if (selectedMonthlyIncome == null) {
+                setState(() {
+                  isMonthlyIncomeSelected = false;
+                });
+              }
+              if (selectedMonthlyExpense == null) {
+                setState(() {
+                  isMonthlyExpenseSelected = false;
+                });
+              }
+              if (selectedGoalActivation != null &&
+                  selectedMonthlyIncome != null &&
+                  selectedMonthlyExpense != null) {
+                Navigator.pushNamed(context, ScreenScheduleVcForm.routeName);
               }
             },
           )
@@ -68,12 +85,17 @@ class _FormPersonalInfoState extends State<FormPersonalInfo> {
       margin: EdgeInsets.only(top: 30),
       width: double.infinity,
       decoration: BoxDecoration(
-        color: Colors.grey.shade300,
+        color: isGoalActivationSelected
+            ? Colors.grey.shade300
+            : Colors.red.shade300,
         borderRadius: new BorderRadius.circular(10),
       ),
       child: Stack(
         children: [
-          Text('Goal For Activation', style: labelInfo),
+          Text(
+            'Goal For Activation',
+            style: isGoalActivationSelected ? labelInfo : labelDanger,
+          ),
           Container(
             height: 50,
             child: DropdownButton(
@@ -86,7 +108,9 @@ class _FormPersonalInfoState extends State<FormPersonalInfo> {
               icon: Container(
                 child: Icon(
                   Icons.arrow_drop_down_rounded,
-                  color: Colors.grey,
+                  color: isGoalActivationSelected
+                      ? Colors.grey
+                      : Colors.red.shade900,
                 ),
                 padding: EdgeInsets.only(bottom: 5),
               ),
@@ -96,6 +120,7 @@ class _FormPersonalInfoState extends State<FormPersonalInfo> {
               onChanged: (value) {
                 setState(() {
                   selectedGoalActivation = value;
+                  isGoalActivationSelected = true;
                 });
               },
               items: listGoalActivation.map<DropdownMenuItem<String>>((value) {
@@ -117,12 +142,17 @@ class _FormPersonalInfoState extends State<FormPersonalInfo> {
       margin: EdgeInsets.only(top: 30),
       width: double.infinity,
       decoration: BoxDecoration(
-        color: Colors.grey.shade300,
+        color: isMonthlyIncomeSelected
+            ? Colors.grey.shade300
+            : Colors.red.shade300,
         borderRadius: new BorderRadius.circular(10),
       ),
       child: Stack(
         children: [
-          Text('Monthly Income', style: labelInfo),
+          Text(
+            'Monthly Income',
+            style: isMonthlyIncomeSelected ? labelInfo : labelDanger,
+          ),
           Container(
             height: 50,
             child: DropdownButton(
@@ -135,7 +165,9 @@ class _FormPersonalInfoState extends State<FormPersonalInfo> {
               icon: Container(
                 child: Icon(
                   Icons.arrow_drop_down_rounded,
-                  color: Colors.grey,
+                  color: isMonthlyIncomeSelected
+                      ? Colors.grey
+                      : Colors.red.shade900,
                 ),
                 padding: EdgeInsets.only(bottom: 5),
               ),
@@ -145,6 +177,7 @@ class _FormPersonalInfoState extends State<FormPersonalInfo> {
               onChanged: (value) {
                 setState(() {
                   selectedMonthlyIncome = value;
+                  isMonthlyIncomeSelected = true;
                 });
               },
               items: listMonthlyIncome.map<DropdownMenuItem<String>>((value) {
@@ -166,12 +199,17 @@ class _FormPersonalInfoState extends State<FormPersonalInfo> {
       margin: EdgeInsets.only(top: 30),
       width: double.infinity,
       decoration: BoxDecoration(
-        color: Colors.grey.shade300,
+        color: isMonthlyExpenseSelected
+            ? Colors.grey.shade300
+            : Colors.red.shade300,
         borderRadius: new BorderRadius.circular(10),
       ),
       child: Stack(
         children: [
-          Text('Monthly Expense', style: labelInfo),
+          Text(
+            'Monthly Expense',
+            style: isMonthlyExpenseSelected ? labelInfo : labelDanger,
+          ),
           Container(
             height: 50,
             child: DropdownButton(
@@ -184,7 +222,9 @@ class _FormPersonalInfoState extends State<FormPersonalInfo> {
               icon: Container(
                 child: Icon(
                   Icons.arrow_drop_down_rounded,
-                  color: Colors.grey,
+                  color: isMonthlyExpenseSelected
+                      ? Colors.grey
+                      : Colors.red.shade900,
                 ),
                 padding: EdgeInsets.only(bottom: 5),
               ),
@@ -194,6 +234,7 @@ class _FormPersonalInfoState extends State<FormPersonalInfo> {
               onChanged: (value) {
                 setState(() {
                   selectedMonthlyExpense = value;
+                  isMonthlyExpenseSelected = true;
                 });
               },
               items: listMonthlyExpense.map<DropdownMenuItem<String>>((value) {
