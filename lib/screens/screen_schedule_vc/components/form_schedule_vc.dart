@@ -11,8 +11,9 @@ class FormScheduleVc extends StatefulWidget {
 }
 
 class _FormScheduleVcState extends State<FormScheduleVc> {
-  DateTime selectedDate = DateTime.now();
   final _formKey = GlobalKey<FormState>();
+  DateTime selectedDate = DateTime.now();
+  TimeOfDay selectedTime = TimeOfDay.now();
 
   String dataDateSelected;
   String dataTimeSelected;
@@ -32,9 +33,20 @@ class _FormScheduleVcState extends State<FormScheduleVc> {
           DefaultButton(
             text: "Next",
             press: () {
-              print("Continue to Success Screen");
-              print(isDataDateSelected);
-              // Navigator.pushNamed(context, ScreenScheduleVcForm.routeName);
+              if (dataDateSelected == null) {
+                setState(() {
+                  isDataDateSelected = false;
+                });
+              }
+              if (dataTimeSelected == null) {
+                setState(() {
+                  isDataTimeSelected = false;
+                });
+              }
+
+              if (dataDateSelected != null && dataTimeSelected != null) {
+                print("TO SUCCESS SCREEN");
+              }
             },
           )
         ],
@@ -115,9 +127,25 @@ class _FormScheduleVcState extends State<FormScheduleVc> {
       width: getProportionateScreenWidth(375),
       margin: EdgeInsets.only(top: 30),
       child: TextButton(
-        onPressed: () {},
+        onPressed: () {
+          showTimePicker(context: context, initialTime: selectedTime)
+              .then((value) {
+            if (value != null) {
+              setState(() {
+                dataTimeSelected = '${value.hour}:${value.minute}';
+                selectedTime = value;
+                isDataTimeSelected = true;
+              });
+            } else {
+              setState(() {
+                isDataTimeSelected = false;
+              });
+            }
+          });
+        },
         style: TextButton.styleFrom(
-          backgroundColor: Colors.grey.shade300,
+          backgroundColor:
+              isDataTimeSelected ? Colors.grey.shade300 : Colors.red.shade300,
           padding: EdgeInsets.only(top: 10, bottom: 10),
           enableFeedback: true,
           shape: RoundedRectangleBorder(
@@ -132,7 +160,10 @@ class _FormScheduleVcState extends State<FormScheduleVc> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("Time", style: labelInfo),
+                    Text(
+                      "Time",
+                      style: isDataTimeSelected ? labelInfo : labelDanger,
+                    ),
                     Text(
                       dataTimeSelected == null
                           ? "- Choose Time -"
@@ -148,7 +179,7 @@ class _FormScheduleVcState extends State<FormScheduleVc> {
               child: Icon(
                 Icons.arrow_drop_down_rounded,
                 size: 36,
-                color: Colors.grey,
+                color: isDataTimeSelected ? Colors.grey : Colors.red.shade900,
               ),
             )
           ],
