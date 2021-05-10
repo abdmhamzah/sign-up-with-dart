@@ -1,7 +1,6 @@
 import 'package:dkatalis/components/default_button.dart';
 import 'package:dkatalis/constants.dart';
 import 'package:dkatalis/screens/screen_email_form/screen_email_form.dart';
-import 'package:dkatalis/screens/screen_personal_information/screen_personal_information_form.dart';
 import 'package:dkatalis/size_config.dart';
 import 'package:flutter/material.dart';
 
