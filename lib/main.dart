@@ -1,6 +1,6 @@
 import 'package:dkatalis/screens/screen_email_form/screen_email_form.dart';
 import 'package:dkatalis/screens/screen_password_form/screen_password_form.dart';
-// import 'package:dkatalis/screens/screen_personal_information/screen_personal_information.dart';
+import 'package:dkatalis/screens/screen_personal_information/screen_personal_information_form.dart';
 // import 'package:dkatalis/screens/screen_schedule_vc/screen_schedule_vc.dart';
 import 'package:dkatalis/theme.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Test Hamzah Abdullah Mubarak',
       debugShowCheckedModeBanner: false,
       theme: theme(),
-      initialRoute: ScreenEmailForm.routeName,
+      initialRoute: ScreenPersonalInfoForm.routeName,
       routes: routes,
     );
   }

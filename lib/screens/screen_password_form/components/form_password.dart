@@ -34,8 +34,8 @@ class _FormPasswordState extends State<FormPassword> {
             text: "Next",
             press: () {
               if (_formKey.currentState.validate() && errors.length == 0) {
-                Navigator.pushNamed(context, ScreenPersonalInfoForm.routeName);
                 _formKey.currentState.save();
+                Navigator.pushNamed(context, ScreenPersonalInfoForm.routeName);
               }
             },
           )

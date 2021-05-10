@@ -1,8 +1,9 @@
 import 'package:dkatalis/components/back_button.dart';
+import 'package:dkatalis/components/stepper_screen.dart';
+import 'package:dkatalis/screens/screen_personal_information/components/form_personal_information.dart';
 import 'package:dkatalis/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:dkatalis/constants.dart';
-import 'package:dkatalis/components/stepper_screen.dart';
 
 class Body extends StatefulWidget {
   @override
@@ -61,6 +62,7 @@ class _BodyState extends State<Body> {
             style: bodyWhite,
           ),
           SizedBox(height: 20),
+          FormPersonalInfo()
         ],
       ),
     );

@@ -64,6 +64,12 @@ TextStyle complexityInfo = TextStyle(
   fontWeight: FontWeight.normal,
 );
 
+TextStyle labelInfo = TextStyle(
+  color: Colors.grey,
+  fontSize: 12,
+  fontWeight: FontWeight.normal,
+);
+
 // Form Error
 final RegExp emailValidatorRegExp = RegExp(
   r"^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+",
