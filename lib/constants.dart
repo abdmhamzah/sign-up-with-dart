@@ -97,3 +97,52 @@ const String passwordLowercaseMissed = "Add lowercaset to your password";
 const String passwordUppercaseMissed = "Add uppercase to your password";
 const String passwordNumberMissed = "Add number to your password";
 const String passwordLessAtLength = "Your password is too short";
+
+String dateConverter(DateTime value) {
+  String day;
+  String month;
+
+  if (value.weekday == 1) {
+    day = "Senin";
+  } else if (value.weekday == 2) {
+    day = "Selasa";
+  } else if (value.weekday == 3) {
+    day = "Rabu";
+  } else if (value.weekday == 4) {
+    day = "Rabu";
+  } else if (value.weekday == 5) {
+    day = "Rabu";
+  } else if (value.weekday == 6) {
+    day = "Rabu";
+  } else if (value.weekday == 7) {
+    day = "Rabu";
+  }
+
+  if (value.month == 1) {
+    month = "Januari";
+  } else if (value.month == 2) {
+    month = "Februari";
+  } else if (value.month == 3) {
+    month = "Maret";
+  } else if (value.month == 4) {
+    month = "April";
+  } else if (value.month == 5) {
+    month = "Mei";
+  } else if (value.month == 6) {
+    month = "Juni";
+  } else if (value.month == 7) {
+    month = "Juli";
+  } else if (value.month == 8) {
+    month = "Agustus";
+  } else if (value.month == 9) {
+    month = "September";
+  } else if (value.month == 10) {
+    month = "Oktober";
+  } else if (value.month == 11) {
+    month = "November";
+  } else if (value.month == 12) {
+    month = "Desember";
+  }
+
+  return '$day, ${value.day} $month ${value.year}';
+}
