@@ -1,4 +1,5 @@
 import 'package:dkatalis/components/default_button.dart';
+import 'package:dkatalis/screens/screen_success/screen_success.dart';
 import 'package:dkatalis/size_config.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -45,7 +46,7 @@ class _FormScheduleVcState extends State<FormScheduleVc> {
               }
 
               if (dataDateSelected != null && dataTimeSelected != null) {
-                print("TO SUCCESS SCREEN");
+                Navigator.pushNamed(context, ScreenSuccess.routeName);
               }
             },
           )
