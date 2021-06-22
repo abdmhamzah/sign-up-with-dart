@@ -13,29 +13,31 @@ class Body extends StatefulWidget {
 class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
-    return Column(children: <Widget>[
-      Expanded(
-        flex: 3,
-        child: Stack(
-          children: <Widget>[
-            buildTopShape(),
-            StepperContent(currentScreen: 1),
-            backButton(context),
-          ],
-        ),
-      ),
-      Expanded(
-        flex: 7,
-        child: Container(
-          color: primaryColor,
-          child: Column(
-            children: [
-              buildMiddleContent(),
+    return Column(
+      children: <Widget>[
+        Expanded(
+          flex: 3,
+          child: Stack(
+            children: <Widget>[
+              buildTopShape(),
+              StepperContent(currentScreen: 1),
+              backButton(context),
             ],
           ),
         ),
-      )
-    ]);
+        Expanded(
+          flex: 7,
+          child: Container(
+            color: primaryColor,
+            child: Column(
+              children: [
+                buildMiddleContent(),
+              ],
+            ),
+          ),
+        )
+      ],
+    );
   }
 
   Container buildTopShape() {
