@@ -16,12 +16,10 @@ class _BodyState extends State<Body> {
       children: <Widget>[
         Expanded(
           flex: 3,
-          child: Stack(
-            children: <Widget>[
-              buildTopShape(),
-              StepperContent(currentScreen: 0),
-            ],
-          ),
+          child: Stack(children: <Widget>[
+            buildTopShape(),
+            StepperContent(currentScreen: 0),
+          ]),
         ),
         Expanded(
           flex: 7,
